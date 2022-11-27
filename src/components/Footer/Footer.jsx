@@ -1,5 +1,9 @@
 function Footer() {
-  return <h1>Footer</h1>;
+  return (
+    <footer className="p-10 flex flex-row justify-center">
+      <h1>Copyright © 2022 Run Together</h1>
+    </footer>
+  );
 }
 
 export default Footer;

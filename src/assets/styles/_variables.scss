@@ -1,10 +1,13 @@
 :root {
-  --primary: #ff6348;
-  --gray-dark: #20232a;
-  --gray-light: #efefef;
-  --font-family: "Montserrat", sans-serif;
+  --primary: #3742fa;
+  --gray-1: #a4b0be;
+  --gray-2: #747d8c;
+  --gray-3: #57606f;
+  --gray-4: #2f3542;
+  --font-family: "Prompt", sans-serif;
   --box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
-  --box-shadow-nav: 0 2px 18px 0 rgb(0 0 0 / 22%);
-  --text-color: #444;
-  --border: 2px solid var(--gray-light);
+  --box-shadow-nav: rgb(0 0 0 / 22%) 0px 2px 18px 0px;
+  --text-color: #f1f2f6;
+  --border: 1px solid var(--gray-2);
+  --border-radius: 6px;
 }
