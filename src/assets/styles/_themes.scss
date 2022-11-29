@@ -3,6 +3,9 @@
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: 0.2s opacity;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: italic;
   &:hover {
     opacity: 0.8;
   }
@@ -12,6 +15,12 @@
   background-color: var(--primary);
   color: white;
   border: 2px solid var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+  border: 2px solid var(--secondary);
 }
 
 .btn-reverse-primary {
@@ -40,12 +49,22 @@ input {
   border: 2px solid var(--gray-2);
   border-radius: var(--border-radius);
   font-family: var(--font-family);
-  color: var(--gray-4);
+  font-size: 14px;
+}
+
+.input-small {
+  padding: 5px 5px;
+  border: 2px solid var(--gray-2);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+  font-size: 14px;
+  max-width: 130px;
 }
 
 .form-error {
   margin: 0;
   color: var(--red-1);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
+  margin-left: 5px;
 }

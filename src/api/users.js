@@ -19,3 +19,23 @@ export async function createUser(newUser) {
     }
   }
 }
+
+export async function editUser(user) {
+  const response = await fetch(API_USERS, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
+  const body = await response.json();
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body;
+    } else {
+      throw new Error("Error api editUser");
+    }
+  }
+}

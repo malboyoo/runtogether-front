@@ -3,8 +3,7 @@ body {
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--text-color);
-  background-color: var(--gray-light);
+  color: white;
 }
 
 * {
@@ -26,12 +25,6 @@ img {
   padding: 10px;
 }
 
-input {
-  border: 2px solid var(--gray-light);
-  border-radius: 20px;
-  padding: 10px;
-}
-
 label {
   font-size: 14px;
   font-weight: bold;
@@ -40,4 +33,8 @@ label {
 a {
   color: var(--text-color);
   text-decoration: none;
+}
+
+form {
+  color: var(--gray-4);
 }
