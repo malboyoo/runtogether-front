@@ -8,6 +8,8 @@ const Signup = lazy(() => import("./pages/Signup/Signup"));
 const Signin = lazy(() => import("./pages/Signin/Signin"));
 const UserSettings = lazy(() => import("./pages/UserSettings/UserSettings"));
 const ProtectedRoute = lazy(() => import("./components/ProtectedRoute/ProtectedRoute"));
+const DeleteAccount = lazy(() => import("./pages/UserSettings/components/DeleteAccount"));
+const ForgetPassword = lazy(() => import("./pages/Signin/ForgetPassword"));
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ export const router = createBrowserRouter([
             <UserSettings />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "delete",
+        element: <DeleteAccount />,
+      },
+      {
+        path: "forget-password",
+        element: <ForgetPassword />,
       },
     ],
   },

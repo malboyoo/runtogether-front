@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthContext } from "../../context/AuthContext";
@@ -45,7 +46,7 @@ function Signin() {
         <Navigate to="/" />
       ) : (
         <div className="flex flex-auto align-center justify-center">
-          <form onSubmit={handleSubmit(submit)} className="card p-8 my-20 max-w-md flex flex-col flex-auto">
+          <form onSubmit={handleSubmit(submit)} className="card p-8 my-20 max-w-md flex flex-col flex-auto shadow-lg">
             <h2 className="mb-5 text-2xl font-semibold italic">Connexion</h2>
 
             <div className="mb-5 flex flex-col">
@@ -62,6 +63,9 @@ function Signin() {
               </label>
               <input type="password" name="password" {...register("password")} />
               {errors.password && <p className="form-error">{errors.password.message}</p>}
+              <Link className="mt-1 text-center text-sm hover:underline hover:text-red-1" to="/forget-password">
+                Mot de passe oublié ?
+              </Link>
             </div>
 
             {errors.generic && (

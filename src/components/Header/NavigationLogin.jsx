@@ -1,5 +1,4 @@
 import styles from "./NavigationLogin.module.scss";
-import avatar from "../../assets/images/avatar.jpg";
 import { useState } from "react";
 import NavMenu from "./NavMenu";
 
@@ -18,7 +17,7 @@ function NavigationLogin({ user, logout }) {
         <li className="ml-5" onClick={() => setMenuOpen(!menuOpen)}>
           <div className="flex flex-row items-center bg-gray-4 rounded-md p-1 cursor-pointer">
             <div className="mx-2 font-medium">{user.firstName}</div>
-            <div className={styles.profilePicture} style={{ backgroundImage: `url(${avatar})` }}></div>
+            <div className={styles.profilePicture} style={{ backgroundImage: `url(${user.imageUrl})` }}></div>
           </div>
         </li>
       </ul>

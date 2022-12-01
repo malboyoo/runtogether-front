@@ -3,8 +3,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { createUser } from "../../api/users";
 import { useNavigate } from "react-router-dom";
 import { userSchema } from "../../schema/userSchema.js";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Signup() {
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const validationSchema = userSchema;
@@ -34,7 +37,8 @@ function Signup() {
     try {
       clearErrors();
       await createUser(values);
-      navigate("/signin");
+      await login(values);
+      navigate("../");
     } catch (message) {
       setError("generic", { type: "generic", message });
     }
@@ -42,7 +46,7 @@ function Signup() {
 
   return (
     <div className="flex flex-auto align-center justify-center">
-      <form onSubmit={handleSubmit(submit)} className="card p-8 my-20 max-w-md flex flex-col flex-auto">
+      <form onSubmit={handleSubmit(submit)} className="card p-8 my-20 max-w-md flex flex-col flex-auto shadow-lg">
         <h2 className="mb-5 text-2xl font-semibold italic">Inscription</h2>
 
         <div className="mb-5 flex flex-col">
