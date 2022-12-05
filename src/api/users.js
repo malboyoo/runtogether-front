@@ -65,7 +65,7 @@ export async function deleteUser() {
     credentials: "include",
   });
   if (response.ok) {
-    return "Votre compte à bien été supprimé ✅";
+    alert("Votre compte à bien été supprimé ✅");
   }
 }
 
@@ -77,7 +77,29 @@ export async function resetPassword(email) {
       "content-type": "application/json",
     },
   });
+  const body = await response.json();
   if (response.ok) {
-    return "Un email avec votre mot de passe temporaire vous à été envoyé";
+    return body.message;
+  } else {
+    if (body) {
+      throw body.message;
+    } else {
+      throw new Error("Erreur lors de la génération du nouveau mot de passe, veuillez contacter le support");
+    }
   }
 }
+
+export const fetchUser = async (id) => {
+  const response = await fetch(API_USERS + id);
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body;
+    } else {
+      throw new Error("une erreur est survenue (event.js - fetchEvent)");
+    }
+  }
+};

@@ -2,8 +2,12 @@ import { useForm } from "react-hook-form";
 import { emailSchema } from "../../schema/userSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPassword } from "../../api/users";
+import { useState } from "react";
 
 function ForgetPassword() {
+  const [sucessMsg, setSucessMsg] = useState("");
+  const [failMsg, setFailMsg] = useState("");
+  const [buttonOff, setButtonOff] = useState(false);
   const defaultValues = {
     email: "",
   };
@@ -22,11 +26,17 @@ function ForgetPassword() {
   async function submit(values) {
     try {
       clearErrors();
-      console.log("in");
-      console.log(values);
-      await resetPassword(values);
+      const response = await resetPassword(values);
+      console.log("in try:", response);
+      setSucessMsg(response);
+      setFailMsg("");
+      setButtonOff(true);
     } catch (error) {
+      console.log("in catch:", error);
+      setFailMsg(error);
+      setSucessMsg("");
       setError("generic", { type: "generic", message: error });
+    } finally {
     }
   }
 
@@ -43,10 +53,16 @@ function ForgetPassword() {
           </div>
           <hr className="border border-gray-1 my-5" />
           <div className="flex flex-row justify-around my-5">
-            <button disabled={isSubmitting} className="btn btn-primary text-xl">
-              Réinitialiser mot de passe <i className="fa-solid fa-rotate-right"></i>
+            <button
+              disabled={isSubmitting || buttonOff}
+              className="btn btn-primary text-xl disabled:bg-gray-2 disabled:border-gray-2"
+            >
+              Réinitialiser mot de passe{" "}
+              <i className={`fa-solid fa-rotate-right ${isSubmitting ? "animate-spin" : ""}`}></i>
             </button>
           </div>
+          <p className="text-center text-green-1">{sucessMsg}</p>
+          <p className="text-center text-red-1">{failMsg}</p>
         </form>
       </div>
     </section>

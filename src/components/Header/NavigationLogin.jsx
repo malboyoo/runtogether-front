@@ -1,6 +1,6 @@
-import styles from "./NavigationLogin.module.scss";
 import { useState } from "react";
 import NavMenu from "./NavMenu";
+import Profile from "../Profile/Profile";
 
 function NavigationLogin({ user, logout }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,10 +15,7 @@ function NavigationLogin({ user, logout }) {
           </div>
         </li>
         <li className="ml-5" onClick={() => setMenuOpen(!menuOpen)}>
-          <div className="flex flex-row items-center bg-gray-4 rounded-md p-1 cursor-pointer">
-            <div className="mx-2 font-medium">{user.firstName}</div>
-            <div className={styles.profilePicture} style={{ backgroundImage: `url(${user.imageUrl})` }}></div>
-          </div>
+          <Profile user={user} />
         </li>
       </ul>
       {menuOpen ? <NavMenu setMenuOpen={setMenuOpen} logout={logout} /> : null}
