@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { getCurrentUser } from "./api/auth";
 import Event from "./pages/Event/Event";
+import { fetchEvent } from "./api/event";
 
 const ProtectedRoute = lazy(() => import("./components/ProtectedRoute/ProtectedRoute"));
 const NotLoggedRoute = lazy(() => import("./components/NotLoggedRoute/NotLoggedRoute"));
@@ -65,6 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "event/:id",
+        loader: fetchEvent,
         element: (
           <ProtectedRoute>
             <Event />

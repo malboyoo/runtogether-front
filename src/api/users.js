@@ -1,4 +1,4 @@
-const API_USERS = "http://localhost:3001/api/users";
+const API_USERS = "http://localhost:3001/api/users/";
 
 export async function createUser(newUser) {
   const response = await fetch(API_USERS, {
@@ -42,7 +42,7 @@ export async function editUser(user) {
 }
 
 export async function editProfilePicture(formData) {
-  const response = await fetch(API_USERS + "/file", {
+  const response = await fetch(API_USERS + "file", {
     method: "POST",
     body: formData,
     credentials: "include",
@@ -60,7 +60,7 @@ export async function editProfilePicture(formData) {
 }
 
 export async function deleteUser() {
-  const response = await fetch(API_USERS + "/delete", {
+  const response = await fetch(API_USERS + "delete", {
     method: "DELETE",
     credentials: "include",
   });
@@ -70,7 +70,7 @@ export async function deleteUser() {
 }
 
 export async function resetPassword(email) {
-  const response = await fetch(API_USERS + "/forget-password", {
+  const response = await fetch(API_USERS + "forget-password", {
     method: "POST",
     body: JSON.stringify(email),
     headers: {
@@ -90,7 +90,13 @@ export async function resetPassword(email) {
 }
 
 export const fetchUser = async (id) => {
-  const response = await fetch(API_USERS + id);
+  const response = await fetch(API_USERS + "fetch-user", {
+    method: "POST",
+    body: JSON.stringify({ id }),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
   const body = await response.json();
 
   if (response.ok) {

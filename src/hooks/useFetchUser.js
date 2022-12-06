@@ -18,7 +18,9 @@ export function useFetchUser(id) {
         }
       }
     }
-    fetchSingleUser();
+    if (id) {
+      fetchSingleUser(id);
+    }
     return () => (cancel = true);
   }, [id]);
 

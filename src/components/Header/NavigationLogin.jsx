@@ -14,7 +14,7 @@ function NavigationLogin({ user, logout }) {
             </span>
           </div>
         </li>
-        <li className="ml-5" onClick={() => setMenuOpen(!menuOpen)}>
+        <li className="ml-5 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
           <Profile user={user} />
         </li>
       </ul>
