@@ -1,6 +1,5 @@
 function Info({ type, city, place, date }) {
   const eventDate = new Date(date);
-  console.log(eventDate.toLocaleString("fr-FR", { minute: "2-digit" }));
 
   return (
     <div className="flex flex-col border-2 border-gray-1 rounded-md p-5 mb-3 w-52" id="info">

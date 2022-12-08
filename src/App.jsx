@@ -10,7 +10,13 @@ function App() {
       <AuthProvider>
         <Header />
         <div className="flex-auto text-white">
-          <Suspense>
+          <Suspense
+            fallback={
+              <div className="mt-96 w-full flex justify-center">
+                <i className="fa-solid fa-spinner animate-spin text-5xl"></i>
+              </div>
+            }
+          >
             <Outlet />
           </Suspense>
         </div>

@@ -22,7 +22,7 @@ function Registered({ registered }) {
       <ul>
         {users.map((data) => (
           <li className="mb-1" key={data._id}>
-            <EventProfile user={data} />
+            <EventProfile user={data} textColor="text-gray-3" />
           </li>
         ))}
       </ul>

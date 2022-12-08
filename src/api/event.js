@@ -56,3 +56,67 @@ export const unregisterToEvent = async (eventId) => {
     }
   }
 };
+
+export const deleteEvent = async (eventId) => {
+  const response = await fetch(API_EVENT + "delete/" + eventId, {
+    method: "DELETE",
+    credentials: "include",
+  });
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body;
+    } else {
+      throw new Error("une erreur est survenue (event.js - unregisterToEvent)");
+    }
+  }
+};
+
+export const createEvent = async (event) => {
+  const response = await fetch(API_EVENT + "create", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(event),
+    credentials: "include",
+  });
+
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body.message;
+    } else {
+      throw new Error("une erreur est survenue (event.js - createEvent)");
+    }
+  }
+};
+
+export const modifyEvent = async (event) => {
+  const response = await fetch(API_EVENT + "modify/" + event._id, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(event),
+    credentials: "include",
+  });
+
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body.message;
+    } else {
+      throw new Error("une erreur est survenue (event.js - createEvent)");
+    }
+  }
+};

@@ -10,9 +10,12 @@ const NotLoggedRoute = lazy(() => import("./components/NotLoggedRoute/NotLoggedR
 const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
 const Signup = lazy(() => import("./pages/Signup/Signup"));
 const Signin = lazy(() => import("./pages/Signin/Signin"));
+const CreateEvent = lazy(() => import("./pages/CreateEvent/CreateEvent"));
+const ModifyEvent = lazy(() => import("./pages/ModifyEvent/ModifyEvent"));
 const UserSettings = lazy(() => import("./pages/UserSettings/UserSettings"));
 const DeleteAccount = lazy(() => import("./pages/UserSettings/components/DeleteAccount"));
 const ForgetPassword = lazy(() => import("./pages/Signin/ForgetPassword"));
+const Error = lazy(() => import("./pages/Error/Error"));
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +75,29 @@ export const router = createBrowserRouter([
             <Event />
           </ProtectedRoute>
         ),
+        errorElement: <Error />,
+      },
+      {
+        path: "create-event",
+        element: (
+          <ProtectedRoute>
+            <CreateEvent />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "modify-event/:id",
+        loader: fetchEvent,
+        element: (
+          <ProtectedRoute>
+            <ModifyEvent />
+          </ProtectedRoute>
+        ),
+        errorElement: <Error />,
+      },
+      {
+        path: "*",
+        element: <Error />,
       },
     ],
   },

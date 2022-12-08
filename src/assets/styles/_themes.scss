@@ -52,6 +52,13 @@ input {
   font-size: 14px;
 }
 
+.input {
+  padding: 5px 5px;
+  border: 2px solid var(--gray-2);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+  font-size: 14px;
+}
 .input-small {
   padding: 5px 5px;
   border: 2px solid var(--gray-2);
@@ -61,7 +68,7 @@ input {
   max-width: 130px;
 }
 
-.input-small {
+.input-medium {
   padding: 5px 5px;
   border: 2px solid var(--gray-2);
   border-radius: var(--border-radius);
@@ -90,4 +97,49 @@ input {
 }
 .appContainer {
   background-color: var(--gray-3);
+}
+
+//leaftlet
+
+.leaflet-control-container {
+  margin-right: 10px;
+  .leaflet-top {
+    display: flex;
+    width: 100%;
+    .leaflet-control-geosearch {
+      display: flex;
+      width: 450px;
+    }
+    .glass {
+      width: 100%;
+    }
+    form {
+      width: 100%;
+    }
+
+    .reset {
+      color: transparent;
+    }
+
+    .leaflet-control-zoom {
+      height: 60px;
+      background-color: white;
+      //border: var(-gray-1) 2px solid;
+    }
+    .leaflet-bar a {
+      background-color: transparent;
+    }
+    .results {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: var(--border-radius);
+      margin-top: 10px;
+      padding: 0 10px;
+      font-size: 14px;
+      color: white;
+    }
+    .geosearch {
+      border: 0;
+    }
+  }
 }
