@@ -1,5 +1,5 @@
 import { useLoaderData, useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Info from "./components/Info";
 import Registered from "./components/Registered";
 import Description from "./components/Description";
@@ -13,19 +13,24 @@ import walkingImg from "../../assets/images/icons/walking.png";
 import cyclingImg from "../../assets/images/icons/cycling.png";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { deleteEvent, registerToEvent, unregisterToEvent } from "../../api/event";
+import { AuthContext } from "../../context/AuthContext";
 
 function Event() {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const event = useLoaderData();
   const [author] = useFetchUser(event.author);
   const [registered, setRegistered] = useState(event.registered);
   const [error, setError] = useState("");
+  const [isRegistered, setIsRegistered] = useState(registered.includes(user._id));
+  const expired = Date.parse(event.date) < Date.now();
 
   const handleClickSign = async () => {
     try {
       const { registered } = await registerToEvent(id);
       setRegistered(registered);
+      setIsRegistered(!isRegistered);
     } catch (error) {
       setError(error.message);
     }
@@ -35,6 +40,7 @@ function Event() {
     try {
       const { registered } = await unregisterToEvent(id);
       setRegistered(registered);
+      setIsRegistered(!isRegistered);
     } catch (error) {
       setError(error.message);
     }
@@ -73,9 +79,11 @@ function Event() {
                   alt=""
                 />
               </div>
-              <h1 className="text-xl font-medium">{event.name}</h1>
+              <h1 className="text-xl font-medium">
+                {event.name} {expired ? " - (terminé)" : " - (en cours)"}
+              </h1>
             </div>
-            {author.lastName && <EventProfile user={author} textColor="text-white" />}
+            {author.lastName && <EventProfile user={author} textColor="text-gray-3" />}
           </div>
 
           <hr className="border border-gray-1 mb-3" />
@@ -93,13 +101,14 @@ function Event() {
 
             <div className="flex flex-col w-full ml-3">
               <Description description={event.description} />
-              <Commentary messages={event.messages} />
+              <Commentary eventMessages={event.messages} isRegistered={isRegistered} expired={expired} />
             </div>
           </div>
 
           <hr className="border border-gray-1 my-5" />
 
           <EventButtons
+            expired={expired}
             registered={registered}
             author={event.author}
             handleClickSign={handleClickSign}

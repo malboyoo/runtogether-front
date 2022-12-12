@@ -120,3 +120,71 @@ export const modifyEvent = async (event) => {
     }
   }
 };
+export const sendMessage = async (message, eventId) => {
+  const response = await fetch(API_EVENT + "message/" + eventId, {
+    method: "POST",
+    body: JSON.stringify(message),
+    headers: {
+      "content-type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body.message;
+    } else {
+      throw new Error("une erreur est survenue (event.js - createEvent)");
+    }
+  }
+};
+
+export const deleteMessage = async (message, eventId) => {
+  const response = await fetch(API_EVENT + "message/" + eventId, {
+    method: "DELETE",
+    body: JSON.stringify(message),
+    headers: {
+      "content-type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body.message;
+    } else {
+      throw new Error("une erreur est survenue (event.js - createEvent)");
+    }
+  }
+};
+
+export const reportMessage = async (message, eventId) => {
+  const response = await fetch(API_EVENT + "report/" + eventId, {
+    method: "POST",
+    body: JSON.stringify({ ...message, eventId }),
+    headers: {
+      "content-type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  const body = await response.json();
+
+  if (response.ok) {
+    return body;
+  } else {
+    if (body) {
+      throw body.message;
+    } else {
+      throw new Error("une erreur est survenue (event.js - createEvent)");
+    }
+  }
+};

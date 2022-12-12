@@ -3,7 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../../context/AuthContext";
 
-function EventButtons({ registered, author, handleClickSign, handleClickUnsign, error, handleDeleteEvent, id }) {
+function EventButtons({
+  registered,
+  author,
+  handleClickSign,
+  handleClickUnsign,
+  error,
+  handleDeleteEvent,
+  id,
+  expired,
+}) {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [toggleDelete, setToggleDelete] = useState(false);
@@ -34,24 +43,30 @@ function EventButtons({ registered, author, handleClickSign, handleClickUnsign, 
       {error && <p className="text-center text-red-1">{error}</p>}
       {status === "author" ? (
         <div className="w-full flex flex-row justify-center i">
-          <button
-            className="btn bg-primary text-xl text-white w-32 mx-5"
-            onClick={() => navigate(`/modify-event/${id}`)}
-          >
-            Modifier
-          </button>
+          {!expired && (
+            <button
+              className="btn bg-primary text-xl text-white w-32 mx-5"
+              onClick={() => navigate(`/modify-event/${id}`)}
+            >
+              Modifier
+            </button>
+          )}
           <button className="btn bg-red-1 text-xl text-white w-32 mx-5" onClick={() => setToggleDelete(true)}>
             Supprimer
           </button>
         </div>
       ) : status === "registered" ? (
-        <button className="btn bg-red-1 text-xl text-white  m-auto" onClick={handleClickUnsign}>
-          Se désinscrire
-        </button>
+        !expired && (
+          <button className="btn bg-red-1 text-xl text-white  m-auto" onClick={handleClickUnsign}>
+            Se désinscrire
+          </button>
+        )
       ) : (
-        <button className="btn bg-primary text-xl text-white  m-auto" onClick={handleClickSign}>
-          S'inscrire
-        </button>
+        !expired && (
+          <button className="btn bg-primary text-xl text-white  m-auto" onClick={handleClickSign}>
+            S'inscrire
+          </button>
+        )
       )}
     </div>
   );
