@@ -2,12 +2,12 @@
   padding: 5px 15px;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: 0.2s opacity;
+  transition: 0.2s filter;
   font-size: 14px;
   font-weight: 600;
   font-style: italic;
   &:hover {
-    opacity: 0.8;
+    filter: opacity(0.8);
   }
 }
 
@@ -15,6 +15,30 @@
   background-color: var(--primary);
   color: white;
   border: 2px solid var(--primary);
+}
+
+.btn-rt1 {
+  background-color: var(--dark-1);
+  color: var(--logo-1);
+  border: 2px solid var(--dark-1);
+}
+
+.btn-rt2 {
+  background-color: var(--dark-1);
+  color: var(--logo-2);
+  border: 2px solid var(--dark-1);
+}
+
+.btn-rt1dark {
+  background-color: var(--dark-2);
+  color: var(--logo-1);
+  border: 2px solid var(--dark-2);
+}
+
+.btn-rt2dark {
+  background-color: var(--dark-2);
+  color: var(--logo-2);
+  border: 2px solid var(--dark-2);
 }
 
 .btn-secondary {
@@ -52,13 +76,6 @@ input {
   font-size: 14px;
 }
 
-.input {
-  padding: 5px 5px;
-  border: 2px solid var(--gray-2);
-  border-radius: var(--border-radius);
-  font-family: var(--font-family);
-  font-size: 14px;
-}
 .input-small {
   padding: 5px 5px;
   border: 2px solid var(--gray-2);
@@ -91,6 +108,14 @@ input {
   margin-left: 5px;
 }
 
+.success-msg {
+  margin: 0;
+  color: green;
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
 .leaflet-container {
   height: 100%;
   width: 100%;
@@ -100,6 +125,30 @@ input {
 }
 
 //leaftlet
+
+.map {
+  z-index: 10 !important;
+  .leaflet-control-zoom {
+    margin: 5px;
+    max-height: 42px;
+    padding: 0;
+  }
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 20px;
+    max-height: 20px;
+    span {
+      display: block;
+      font-size: 16px;
+    }
+  }
+  .leaflet-top {
+    justify-content: end;
+  }
+}
 
 .leaflet-control-container {
   margin-right: 10px;

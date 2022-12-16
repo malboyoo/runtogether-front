@@ -41,7 +41,10 @@ function Signin() {
 
   return (
     <div className="flex flex-auto align-center justify-center">
-      <form onSubmit={handleSubmit(submit)} className="card p-8 my-20 max-w-md flex flex-col flex-auto shadow-lg">
+      <form
+        onSubmit={handleSubmit(submit)}
+        className="card p-8 md:my-16 my-10 mx-4 max-w-md flex flex-col flex-auto shadow-lg"
+      >
         <h2 className="mb-5 text-2xl font-semibold italic">Connexion</h2>
 
         <div className="mb-5 flex flex-col">
@@ -70,7 +73,7 @@ function Signin() {
         )}
 
         <div className="self-center mt-5">
-          <button disabled={isSubmitting} className="btn btn-primary">
+          <button disabled={isSubmitting} className="btn btn-rt1">
             Connexion - <i className="fa-solid fa-person-running"></i>
           </button>
         </div>

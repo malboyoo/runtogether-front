@@ -47,8 +47,8 @@ function Commentary({ eventMessages, isRegistered }) {
   }
 
   return (
-    <div className="flex flex-col border-2 border-gray-1 rounded-md p-5  mt-3 w-full h-full " id="info">
-      <h2 className="text-xl font-semibold mb-3">Commentaire</h2>
+    <div className="flex flex-col border-2 border-gray-1 rounded-md md:p-5 p-3  mt-3 w-full h-full " id="info">
+      <h2 className="md:text-xl text-lg font-semibold mb-3">Commentaire</h2>
       <div className="flex flex-col w-full h-full">
         {messages.map((message, index) => (
           <Message
@@ -63,8 +63,14 @@ function Commentary({ eventMessages, isRegistered }) {
       </div>
       {isRegistered && (
         <form className="flex flex-row mt-1 w-full" onSubmit={handleSubmit(submit)}>
-          <input type="text" className="mr-2 h-9 flex-auto  border-gray-1" {...register("content")} />
-          <button className="btn bg-gray-3 text-white">Envoyer</button>
+          <input
+            type="text"
+            className="mr-2 md:h-9 h-7 md:text-base text-xs flex-auto  border-gray-1"
+            {...register("content")}
+          />
+          <button className="btn btn-rt2 h-7 w-7 md:h-9 md:w-9 flex flex-row items-center justify-center">
+            <i className="fa-solid fa-paper-plane"></i>
+          </button>
         </form>
       )}
       <div>

@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 import { useMap } from "react-leaflet";
 import { useEffect } from "react";
@@ -28,9 +28,6 @@ const SearchField = ({ setMapInfo }) => {
   useEffect(() => {
     map.addControl(searchControl);
     map.on("geosearch/showlocation", handleResult);
-    map.on("click", function (e) {
-      console.log(e);
-    });
     return () => map.removeControl(searchControl);
   }, []);
 

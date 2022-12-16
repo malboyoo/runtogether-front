@@ -3,7 +3,7 @@ import { passwordSchema } from "../../../schema/userSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editUser } from "../../../api/users";
 
-function PasswordForm({ user, setToggleSettings, setUser }) {
+function PasswordForm({ user, setToggleSettings, setUser, setMessage }) {
   const defaultValues = {
     firstName: user.firstName,
     lastName: user.lastName,
@@ -26,9 +26,11 @@ function PasswordForm({ user, setToggleSettings, setUser }) {
   });
 
   async function submit(values) {
+    setMessage("");
     try {
       clearErrors();
-      await editUser({ ...values, _id: user._id });
+      const response = await editUser({ ...values, _id: user._id });
+      setMessage(response.message);
       setUser({ ...user });
       setToggleSettings({
         photo: false,

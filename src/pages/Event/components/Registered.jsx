@@ -1,10 +1,12 @@
 import EventProfile from "./EventProfile/EventProfile";
 import { fetchUser } from "../../../api/users";
 import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function Registered({ registered }) {
   const [users, setUsers] = useState([]);
+  const [active, setActive] = useState(false);
+  const contentRef = useRef();
 
   useEffect(() => {
     async function getUser() {
@@ -15,11 +17,18 @@ function Registered({ registered }) {
   }, [registered]);
 
   return (
-    <div className="flex flex-col border-2 border-gray-1 rounded-md p-5" id="info">
-      <div className="flex flex-col mb-2">
+    <div className="flex flex-col border-2 border-gray-1 rounded-md md:px-5 px-3 overflow-hidden" id="info">
+      <div
+        onClick={() => setActive(!active)}
+        className="flex flex-row justify-between items-center my-2 cursor-pointer"
+      >
         <h2 className="text-lg font-semibold mb-1">Inscrits - {registered.length}</h2>
+        {active ? <i className="fa-solid fa-chevron-down"></i> : <i className="fa-solid fa-chevron-up"></i>}
       </div>
-      <ul>
+      <ul
+        ref={contentRef}
+        style={active ? { maxHeight: contentRef.current.scrollHeight + "px" } : { maxHeight: "0px" }}
+      >
         {users.map((data) => (
           <li className="mb-1" key={data._id}>
             <EventProfile user={data} textColor="text-gray-3" />

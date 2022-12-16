@@ -9,7 +9,7 @@ function App() {
     <div className="h-[100vh]  flex flex-col appContainer">
       <AuthProvider>
         <Header />
-        <div className="flex-auto text-white">
+        <div className="flex-auto text-white bg-gray-3">
           <Suspense
             fallback={
               <div className="mt-96 w-full flex justify-center">

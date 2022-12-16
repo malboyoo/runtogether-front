@@ -42,20 +42,20 @@ function ForgetPassword() {
 
   return (
     <section className="flex flex-auto align-center justify-center">
-      <div className="card p-8 my-20 max-w-xl flex flex-col flex-auto text-gray-4">
+      <div className="card p-8 md:my-16 my-10 mx-4 max-w-xl flex flex-col flex-auto text-gray-4">
         <h2 className="text-xl text-center font-medium">Réinitialiser votre mot de passe</h2>
         <form onSubmit={handleSubmit(submit)}>
           <hr className="border border-gray-1 my-5" />
           <div className="flex flex-col items-center">
             <p className="my-2 font-medium">Veuillez entrer votre e-mail:</p>
-            <input type="email" className="input-medium my-2" name="email" {...register("email")} />
+            <input type="email" className="input md:input-medium my-2" name="email" {...register("email")} />
             {errors.email && <p className="form-error">{errors.email.message}</p>}
           </div>
           <hr className="border border-gray-1 my-5" />
           <div className="flex flex-row justify-around my-5">
             <button
               disabled={isSubmitting || buttonOff}
-              className="btn btn-primary text-xl disabled:bg-gray-2 disabled:border-gray-2"
+              className="btn btn-rt2 text-xl disabled:bg-gray-2 disabled:border-gray-2"
             >
               Réinitialiser mot de passe{" "}
               <i className={`fa-solid fa-rotate-right ${isSubmitting ? "animate-spin" : ""}`}></i>

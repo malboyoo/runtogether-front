@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 //import styles from "./UserSettings.module.scss";
 
 function UserSettings() {
+  const [message, setMessage] = useState("");
   const { user, setUser } = useContext(AuthContext);
   const [toggleSettings, setToggleSettings] = useState({
     photo: false,
@@ -18,9 +19,9 @@ function UserSettings() {
     password: false,
   });
   return (
-    <section className="flex flex-auto align-center justify-center">
-      <div className="card p-8 my-20 max-w-2xl flex flex-col flex-auto text-gray-4">
-        <h2 className="text-2xl mb-4 font-semibold"> Mon profil</h2>
+    <section className="flex flex-auto align-center justify-center bg-gray-3">
+      <div className="card sm:p-8 p-4 md:my-16 my-10 mx-4 max-w-2xl flex flex-col flex-auto text-gray-4 shadow-lg">
+        <h2 className="text-2xl mb-4 font-semibold">Mon profil</h2>
 
         {/* EMAIL */}
         <div className="my-4 grid grid-cols-3  justify-between items-center">
@@ -102,7 +103,7 @@ function UserSettings() {
 
         {/* PASSWORD */}
         {toggleSettings.password ? (
-          <PasswordForm user={user} setToggleSettings={setToggleSettings} setUser={setUser} />
+          <PasswordForm user={user} setToggleSettings={setToggleSettings} setUser={setUser} setMessage={setMessage} />
         ) : (
           <div className="my-4 grid grid-cols-3 justify-between items-center">
             <span className="font-semibold ml-1">Mot de passe</span>
@@ -113,7 +114,7 @@ function UserSettings() {
             ></i>
           </div>
         )}
-
+        {message && <p className="success-msg">{message}</p>}
         <hr className="border border-gray-1" />
 
         <div className="mt-5 text-sm underline text-red-1">

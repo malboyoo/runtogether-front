@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { getCurrentUser } from "./api/auth";
 import Event from "./pages/Event/Event";
-import { fetchEvent } from "./api/event";
+import { fetchEvent, fetchAllEvent } from "./api/event";
 
 const ProtectedRoute = lazy(() => import("./components/ProtectedRoute/ProtectedRoute"));
 const NotLoggedRoute = lazy(() => import("./components/NotLoggedRoute/NotLoggedRoute"));
@@ -16,6 +16,8 @@ const UserSettings = lazy(() => import("./pages/UserSettings/UserSettings"));
 const DeleteAccount = lazy(() => import("./pages/UserSettings/components/DeleteAccount"));
 const ForgetPassword = lazy(() => import("./pages/Signin/ForgetPassword"));
 const Error = lazy(() => import("./pages/Error/Error"));
+const EventList = lazy(() => import("./pages/EventList/EventList"));
+const CookieCharter = lazy(() => import("./pages/CookieCharter/CookieCharter"));
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +68,21 @@ export const router = createBrowserRouter([
             <ForgetPassword />
           </NotLoggedRoute>
         ),
+      },
+      {
+        path: "event",
+        loader: fetchAllEvent,
+        element: (
+          <ProtectedRoute>
+            <EventList />
+          </ProtectedRoute>
+        ),
+        errorElement: <Error />,
+      },
+      {
+        path: "cookie",
+        element: <CookieCharter />,
+        errorElement: <Error />,
       },
       {
         path: "event/:id",

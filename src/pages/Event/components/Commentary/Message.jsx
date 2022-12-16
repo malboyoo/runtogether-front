@@ -49,7 +49,7 @@ function Message({ message, index, setMessages, setError, clearError }) {
     >
       <div className="flex justify-between">
         <div>
-          <span className="text-sm pt-1">
+          <span className="md:text-sm text-xs pt-1">
             {today
               ? " "
               : date.toLocaleString("fr-FR", { weekday: "short" }) +
@@ -82,7 +82,7 @@ function Message({ message, index, setMessages, setError, clearError }) {
         </div>
         <EventProfile user={message.author} />
       </div>
-      <p className="-translate-y-1 font-medium ">{message.content}</p>
+      <p className="-translate-y-1 font-medium md:text-base text-sm">{message.content}</p>
     </div>
   );
 }

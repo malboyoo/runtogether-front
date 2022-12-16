@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { eventSchema } from "../../schema/eventSchema.js";
 import Map from "./Components/Map.jsx";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
 import { modifyEvent } from "../../api/event.js";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
@@ -36,7 +36,6 @@ function ModifyEvent() {
   });
 
   async function submit(values) {
-    console.log(id);
     try {
       clearErrors();
       if (mapInfo) {
@@ -46,7 +45,6 @@ function ModifyEvent() {
           author: user._id,
           _id: id,
         };
-        console.log(body);
         await modifyEvent(body);
         navigate(`/event/${id}`);
       } else {
@@ -58,38 +56,39 @@ function ModifyEvent() {
   }
 
   return (
-    <div className="flex flex-auto align-center justify-center">
+    <div className="flex flex-auto align-center justify-center bg-gray-3 shadow-lg">
       <form
         onSubmit={handleSubmit(submit)}
-        className="card p-8 my-20 max-w-4xl flex flex-col flex-auto shadow-lg text-gray-4"
+        className="card md:p-8 p-4 md:my-16 my-10 mx-4 max-w-4xl flex flex-col flex-auto shadow-lg text-gray-4"
       >
-        <h2 className="mb-10 text-2xl font-semibold italic">Modifier une sortie</h2>
+        <h2 className="text-xl md:text-2xl font-semibold italic">Modifier une sortie</h2>
+        <hr className="border border-gray-1 my-5" />
         <div className="mb-5 flex flex-col">
-          <label htmlFor="map" className="ml-1 text-lg">
+          <label htmlFor="map" className="md:text-lg text-base">
             Selectionnez une adresse de RDV
           </label>
-          <div className="h-96 rounded-md overflow-hidden border-gray-2 border-2 shadow-lg ml-2 mt-2" id="map">
+          <div className="md:h-96 h-72 rounded-md overflow-hidden border-gray-2 border-2 shadow-lg mt-2" id="map">
             <Map setMapInfo={setMapInfo} {...event.location} />
           </div>
-          <p className=" ml-2 mt-2">
-            {mapInfo && mapInfo.label.split(",")[0] + ","} {mapInfo && cityName}
+          <p className="mt-2">
+            {mapInfo && "[ " + mapInfo.label.split(",")[0] + ","} {mapInfo && cityName + " ]"}
           </p>
         </div>
 
         <div className="mb-5 flex flex-col">
-          <label htmlFor="date" className="ml-1 text-lg">
+          <label htmlFor="date" className="md:text-lg text-base">
             Date de sortie
           </label>
-          <input type="datetime-local" name="date" {...register("date")} className="ml-2 mt-2 input" />
+          <input type="datetime-local" name="date" {...register("date")} className="mt-2 input" />
 
           {errors.date && <p className="form-error">{errors.date.message}</p>}
         </div>
 
         <div className="mb-5 flex flex-col">
-          <label htmlFor="type" className="ml-1 text-lg">
+          <label htmlFor="type" className="md:text-lg text-base">
             Type de sortie
           </label>
-          <select name="type" {...register("type")} className="ml-2 mt-2 input">
+          <select name="type" {...register("type")} className="mt-2 border-2 border-gray-2 rounded-md p-2">
             <option value="Running">Running</option>
             <option value="Trail">Trail</option>
             <option value="Marche">Marche</option>
@@ -99,22 +98,22 @@ function ModifyEvent() {
         </div>
 
         <div className="mb-5 flex flex-col">
-          <label htmlFor="name" className="ml-1">
+          <label htmlFor="name" className="md:text-lg text-base">
             Nom de la sortie
           </label>
-          <input type="text" name="name" {...register("name")} className="input ml-2 mt-2 input" />
+          <input type="text" name="name" {...register("name")} className="mt-2 border-2 border-gray-2 rounded-md p-2" />
           {errors.name && <p className="form-error">{errors.name.message}</p>}
         </div>
 
         <div className="mb-5 flex flex-col">
-          <label htmlFor="description" className="ml-1">
+          <label htmlFor="description" className="md:text-lg text-base">
             Description
           </label>
           <textarea
             type="text"
             name="description"
             {...register("description")}
-            className="input ml-2 mt-2 input h-28"
+            className="mt-2 h-28 border-2 border-gray-2 rounded-md p-2 md:text-sm text-xstext-base"
           />
           {errors.description && <p className="form-error">{errors.description.message}</p>}
         </div>
@@ -124,9 +123,9 @@ function ModifyEvent() {
             <p className="form-error">{errors.generic.message}</p>
           </div>
         )}
-
+        <hr className="border border-gray-1 my-5" />
         <div className="self-center mt-5">
-          <button disabled={isSubmitting} className="btn btn-primary">
+          <button disabled={isSubmitting} className="btn btn-rt1">
             Valider - <i className="fa-solid fa-person-running"></i>
           </button>
         </div>
