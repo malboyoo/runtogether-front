@@ -6,51 +6,70 @@
   font-size: 14px;
   font-weight: 600;
   font-style: italic;
-  &:hover {
-    filter: opacity(0.8);
-  }
+  transition: all 0.3s;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: white;
   border: 2px solid var(--primary);
+  &:hover {
+    filter: opacity(0.8);
+  }
 }
 
 .btn-rt1 {
   background-color: var(--dark-1);
   color: var(--logo-1);
   border: 2px solid var(--dark-1);
+  &:hover {
+    background-color: var(--gray-4);
+  }
 }
 
 .btn-rt2 {
   background-color: var(--dark-1);
   color: var(--logo-2);
   border: 2px solid var(--dark-1);
+  &:hover {
+    background-color: var(--gray-4);
+  }
 }
 
 .btn-rt1dark {
   background-color: var(--dark-2);
   color: var(--logo-1);
   border: 2px solid var(--dark-2);
+  &:hover {
+    background-color: var(--gray-4);
+  }
 }
 
 .btn-rt2dark {
   background-color: var(--dark-2);
   color: var(--logo-2);
   border: 2px solid var(--dark-2);
+  &:hover {
+    background-color: var(--gray-4);
+  }
 }
 
 .btn-secondary {
   background-color: var(--secondary);
   color: white;
   border: 2px solid var(--secondary);
+  &:hover {
+    filter: opacity(0.8);
+  }
 }
 
 .btn-reverse-primary {
   border: 2px solid var(--primary);
   color: var(--primary);
   background-color: white;
+  &:hover {
+    filter: opacity(0.8);
+  }
 }
 
 .card {

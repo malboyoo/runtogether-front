@@ -10,7 +10,7 @@ function Cookie() {
       buttonStyle={{ color: "white", background: "#57606f", fontSize: "13px", borderRadius: "6px", padding: "10px" }}
       expires={365}
     >
-      Runtogether.fr utilise uniquement des cookies essentiel à la connexion, vos données resteront confidentielles et
+      Runtogether.fr utilise uniquement des cookies essentiels à la connexion, vos données resteront confidentielles et
       ne seront jamais transmise à une entité tierce.
     </CookieConsent>
   );

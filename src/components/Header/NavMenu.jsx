@@ -12,7 +12,7 @@ function NavMenu({ setMenuOpen, logout }) {
         </NavLink>
         <li
           onClick={() => logout()}
-          className="p-2 bg-dark-1 rounded-md text-right flex justify-between items-center cursor-pointer"
+          className="p-2 bg-dark-1 rounded-md text-right flex justify-between items-center cursor-pointer hover:underline"
         >
           Se déconnecter <i className="fa-solid fa-door-open ml-5 "></i>
         </li>

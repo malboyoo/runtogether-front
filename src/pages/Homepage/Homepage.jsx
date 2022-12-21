@@ -66,14 +66,16 @@ function Homepage() {
                 Veuillez prendre en compte que runtogether.fr est en cours de développement, je vous invite à me faire
                 part de vos commentaires et suggestions afin de m'aider à améliorer votre expérience utilisateur.{" "}
               </p>
-              <Link to="/contact" className="text-2xl bg-dark-1 px-3 rounded-md">
+              <Link to="/contact" className="text-2xl  hover:bg-gray-4 bg-dark-1 px-3 rounded-md duration-300">
                 <i className="fa-regular fa-envelope"></i>
               </Link>
             </div>
           </div>
 
           <div className="py-5 px-10 rounded-2xl mx-4 mb-10 md:mb-16 flex flex-col justify-center items-center bg-dark-2 text-white">
-            <p className="font-semibold text-lg text-center">N'attendez plus, Inscrivez vous!</p>
+            <p className="font-semibold text-lg text-center">
+              Rejoignez-nous. Planifiez et partagez vos sorties gratuitement!
+            </p>
 
             <hr className="border border-logo-2 my-7 w-full animate-extension" />
             <button className="btn btn-rt1 text-logo-1  text-2xl w-36" onClick={() => navigate("signup")}>
