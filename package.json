@@ -16,8 +16,10 @@
     "react-hook-form": "^7.39.6",
     "react-image-file-resizer": "^0.4.8",
     "react-leaflet": "^4.2.0",
+    "react-linkify": "^1.0.0-alpha",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "reactjs-popup": "^2.0.5",
     "sass": "^1.56.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

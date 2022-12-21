@@ -8,7 +8,7 @@ function CookieCharter() {
       <button className="btn btn-rt1 self-start w-16 px-4 shadow-2xl mt-5" onClick={() => navigate("/")}>
         <i className="fa-solid fa-arrow-left"></i>
       </button>
-      <div className="card md:p-8 p-4 mt-5  mb-10 max-w-4xl w-full flex flex-col flex-auto text-gray-3 shadow-xl">
+      <section className="card md:p-8 p-4 mt-5  mb-10 max-w-4xl w-full flex flex-col flex-auto text-gray-3 shadow-xl">
         <h1 className="text-2xl font-semibold mb-5">Charte d’utilisation des cookies</h1>
         <hr className="border border-gray-1 mb-5" />
         <p className="text-sm mb-5">
@@ -75,7 +75,7 @@ function CookieCharter() {
           terminal, vous serez toujours en mesure de naviguer sur ce site, mais certaines parties et options pourraient
           ne pas fonctionner correctement.
         </p>
-      </div>
+      </section>
     </main>
   );
 }

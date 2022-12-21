@@ -4,7 +4,7 @@ function Logo({ size, headerLogo = false }) {
   return (
     <div className={`${styles.logo} ${headerLogo ? "text-lg" : "text-2xl"} sm:${size}`}>
       <span className={styles.run}>
-        RUN <i className="fa-solid fa-person-running"></i>
+        RUN <i className={`fa-solid fa-person-running  ${!headerLogo && "animate-wiggle"}`}></i>
       </span>
       <span className={styles.together}>TOGETHER</span>
     </div>

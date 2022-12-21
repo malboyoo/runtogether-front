@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-function Map({ bounds, raw, label }) {
+function Map({ bounds, label }) {
   return (
     <MapContainer center={bounds[0]} zoom={15} scrollWheelZoom={false}>
       <TileLayer

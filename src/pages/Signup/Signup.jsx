@@ -56,7 +56,7 @@ function Signup() {
           <label htmlFor="firstName" className="ml-1">
             Prénom *
           </label>
-          <input type="text" name="firstName" {...register("firstName")} />
+          <input type="text" name="firstName" {...register("firstName")} autoComplete="given-name" />
           {errors.firstName && <p className="form-error">{errors.firstName.message}</p>}
         </div>
 
@@ -64,7 +64,7 @@ function Signup() {
           <label htmlFor="lastName" className="ml-1">
             Nom *
           </label>
-          <input type="text" name="lastName" {...register("lastName")} />
+          <input type="text" name="lastName" {...register("lastName")} autoComplete="family-name" />
           {errors.lastName && <p className="form-error">{errors.lastName.message}</p>}
         </div>
 
@@ -88,7 +88,7 @@ function Signup() {
           <label htmlFor="email" className="ml-1">
             Email *
           </label>
-          <input type="text" name="email" {...register("email")} />
+          <input type="text" name="email" {...register("email")} autoComplete="email" />
           {errors.email && <p className="form-error">{errors.email.message}</p>}
         </div>
 
@@ -96,7 +96,7 @@ function Signup() {
           <label htmlFor="password" className="ml-1">
             Mot de passe *
           </label>
-          <input type="password" name="password" {...register("password")} />
+          <input type="password" name="password" {...register("password")} autoComplete="new-password" />
           {errors.password && <p className="form-error">{errors.password.message}</p>}
         </div>
 
@@ -104,7 +104,7 @@ function Signup() {
           <label htmlFor="confirmPassword" className="ml-1">
             Confirmez mot de passe *
           </label>
-          <input type="password" name="confirmPassword" {...register("confirmPassword")} />
+          <input type="password" name="confirmPassword" {...register("confirmPassword")} autoComplete="new-password" />
           {errors.confirmPassword && <p className="form-error">{errors.confirmPassword.message}</p>}
         </div>
 

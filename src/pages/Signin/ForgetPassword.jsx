@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailSchema } from "../../schema/userSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPassword } from "../../api/users";
-import { useState } from "react";
 
 function ForgetPassword() {
   const [sucessMsg, setSucessMsg] = useState("");
@@ -27,21 +27,18 @@ function ForgetPassword() {
     try {
       clearErrors();
       const response = await resetPassword(values);
-      console.log("in try:", response);
       setSucessMsg(response);
       setFailMsg("");
       setButtonOff(true);
     } catch (error) {
-      console.log("in catch:", error);
       setFailMsg(error);
       setSucessMsg("");
       setError("generic", { type: "generic", message: error });
-    } finally {
     }
   }
 
   return (
-    <section className="flex flex-auto align-center justify-center">
+    <main className="flex flex-auto align-center justify-center">
       <div className="card p-8 md:my-16 my-10 mx-4 max-w-xl flex flex-col flex-auto text-gray-4">
         <h2 className="text-xl text-center font-medium">Réinitialiser votre mot de passe</h2>
         <form onSubmit={handleSubmit(submit)}>
@@ -65,7 +62,7 @@ function ForgetPassword() {
           <p className="text-center text-red-1">{failMsg}</p>
         </form>
       </div>
-    </section>
+    </main>
   );
 }
 

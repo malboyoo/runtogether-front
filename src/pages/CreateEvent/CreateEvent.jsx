@@ -1,13 +1,13 @@
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { eventSchema } from "../../schema/eventSchema.js";
-import Map from "./Components/Map.jsx";
-import { useState } from "react";
-import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
 import { createEvent } from "../../api/event.js";
-import { useNavigate } from "react-router-dom";
 import { useSetCityName } from "../../hooks/useSetCityName.js";
+import Map from "./Components/Map.jsx";
+import Popup from "reactjs-popup";
 
 function CreateEvent() {
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ function CreateEvent() {
   }
 
   return (
-    <div className="flex flex-auto align-center justify-center bg-gray-3">
+    <main className="flex flex-auto align-center justify-center bg-gray-3">
       <form
         onSubmit={handleSubmit(submit)}
         className="card p-4 md:p-8 md:my-16 my-10 mx-4 max-w-4xl flex flex-col flex-auto shadow-lg text-gray-4"
@@ -64,10 +64,18 @@ function CreateEvent() {
         <h2 className="text-xl md:text-2xl font-semibold italic">Créer une sortie</h2>
         <hr className="border border-gray-1 my-5" />
         <div className="mb-5 flex flex-col">
-          <label htmlFor="map" className="md:text-lg text-base">
-            Selectionnez une adresse de RDV
-          </label>
-
+          <Popup
+            trigger={
+              <label htmlFor="map" className="md:text-lg text-base">
+                Selectionnez une adresse de RDV <i className="fa-regular fa-circle-question"></i>
+              </label>
+            }
+            position="top left"
+          >
+            <div className="bg-gray-2 text-white py-1 px-2 rounded-md z-50 text-sm">
+              Si le lieu de RDV n'est pas disponible, mentionnez le dans la description.
+            </div>
+          </Popup>
           <div className="md:h-96 h-72 rounded-md overflow-hidden border-gray-2 border-2 shadow-lg mt-2" id="map">
             <Map setMapInfo={setMapInfo} />
           </div>
@@ -100,6 +108,7 @@ function CreateEvent() {
             <option value="Trail">Trail</option>
             <option value="Marche">Marche</option>
             <option value="Vélo">Vélo</option>
+            <option value="Course">Course officielle</option>
           </select>
           {errors.type && <p className="form-error">{errors.type.message}</p>}
         </div>
@@ -113,9 +122,18 @@ function CreateEvent() {
         </div>
 
         <div className="mb-5 flex flex-col">
-          <label htmlFor="description" className="md:text-lg text-base">
-            Description
-          </label>
+          <Popup
+            trigger={
+              <label htmlFor="description" className="md:text-lg text-base">
+                Description <i className="fa-regular fa-circle-question"></i>
+              </label>
+            }
+            position="top left"
+          >
+            <div className="bg-gray-2 text-white py-1 px-2 rounded-md z-50 text-sm ">
+              Décrivez au mieux votre sortie: lieu exacte de RDV, allure, itinéraire, etc...
+            </div>
+          </Popup>
           <textarea
             type="text"
             name="description"
@@ -137,7 +155,7 @@ function CreateEvent() {
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 }
 

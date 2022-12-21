@@ -2,6 +2,7 @@ import runningImg from "../../../assets/images/icons/running.png";
 import trailingImg from "../../../assets/images/icons/trailing.png";
 import walkingImg from "../../../assets/images/icons/walking.png";
 import cyclingImg from "../../../assets/images/icons/cycling.png";
+import raceImg from "../../../assets/images/icons/race.png";
 import Map from "./Map/Map";
 import ListInfo from "./ListInfo";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +27,9 @@ function EventCard({ name, location, type, date, city, registered, _id }) {
                       ? trailingImg
                       : type === "Marche"
                       ? walkingImg
-                      : cyclingImg
+                      : type === "Vélo"
+                      ? cyclingImg
+                      : raceImg
                   }
                   alt=""
                 />
@@ -48,7 +51,7 @@ function EventCard({ name, location, type, date, city, registered, _id }) {
             countdown={countdown}
           />
           <button
-            className="btn btn-rt2 justify-self-center  text-white w-36 h-9 self-center md:self-start md:ml-6"
+            className="btn btn-rt2 justify-self-center  text-white w-36 h-9 self-center md:self-start md:ml-6 transition-all"
             onClick={() => navigate(`/event/${_id}`)}
           >
             Voir la sortie »

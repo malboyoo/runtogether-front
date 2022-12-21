@@ -43,8 +43,8 @@ function NameForm({ user, setToggleSettings, setUser }) {
       <form className="my-4 flex flex-row justify-between items-center" onSubmit={handleSubmit(submit)}>
         <label className="font-semibold">Nom</label>
         <div className="flex flex-row">
-          <input type="text" name="firstName" {...register("firstName")} className="mr-2 input-small" />
-          <input type="text" name="lastName" {...register("lastName")} className="mr-2 input-small" />
+          <input type="text" name="firstName" {...register("firstName")} className="mr-2 input input-small" />
+          <input type="text" name="lastName" {...register("lastName")} className="mr-2 input input-small" />
         </div>
         <button disabled={isSubmitting} className="mr-2 text-end max-w-min justify-self-end">
           <i className="fa-solid fa-pen text-primary cursor-pointer"></i>

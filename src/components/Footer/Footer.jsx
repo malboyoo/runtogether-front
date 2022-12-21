@@ -6,9 +6,9 @@ function Footer() {
       <nav>
         <ul className="text-logo-1 text-sm">
           <li className="hover:underline">
-            <a href="mailTo:thibaut.lefevre.dev@gmail.com">
+            <Link to="/contact">
               Contacter le support <i className="fa-regular fa-envelope"></i>
-            </a>
+            </Link>
           </li>
           <li className="hover:underline">
             <Link to="/cookie">

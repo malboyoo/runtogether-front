@@ -34,7 +34,6 @@ function Signin() {
       clearErrors();
       await login(credentials);
     } catch (message) {
-      console.log(message);
       setError("generic", { type: "generic", message });
     }
   }
@@ -51,7 +50,7 @@ function Signin() {
           <label htmlFor="email" className="ml-1">
             Email
           </label>
-          <input type="text" name="email" {...register("email")} />
+          <input type="text" name="email" {...register("email")} autoComplete="email" />
           {errors.email && <p className="form-error">{errors.email.message}</p>}
         </div>
 
@@ -59,7 +58,7 @@ function Signin() {
           <label htmlFor="password" className="ml-1">
             Mot de passe
           </label>
-          <input type="password" name="password" {...register("password")} />
+          <input type="password" name="password" {...register("password")} autoComplete="current-password" />
           {errors.password && <p className="form-error">{errors.password.message}</p>}
           <Link className="mt-1 text-center text-sm hover:underline hover:text-red-1" to="/forget-password">
             Mot de passe oublié ?

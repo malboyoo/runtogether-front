@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { eventSchema } from "../../schema/eventSchema.js";
-import Map from "./Components/Map.jsx";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
 import { modifyEvent } from "../../api/event.js";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { useSetCityName } from "../../hooks/useSetCityName.js";
+import Map from "./Components/Map.jsx";
 
 function ModifyEvent() {
   const event = useLoaderData();
@@ -56,7 +56,7 @@ function ModifyEvent() {
   }
 
   return (
-    <div className="flex flex-auto align-center justify-center bg-gray-3 shadow-lg">
+    <main className="flex flex-auto align-center justify-center bg-gray-3 shadow-lg">
       <form
         onSubmit={handleSubmit(submit)}
         className="card md:p-8 p-4 md:my-16 my-10 mx-4 max-w-4xl flex flex-col flex-auto shadow-lg text-gray-4"
@@ -93,6 +93,7 @@ function ModifyEvent() {
             <option value="Trail">Trail</option>
             <option value="Marche">Marche</option>
             <option value="Vélo">Vélo</option>
+            <option value="Course">Course officielle</option>
           </select>
           {errors.type && <p className="form-error">{errors.type.message}</p>}
         </div>
@@ -130,7 +131,7 @@ function ModifyEvent() {
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 }
 

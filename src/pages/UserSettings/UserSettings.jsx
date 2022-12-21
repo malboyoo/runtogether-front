@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import NameForm from "./components/NameForm";
 import CityForm from "./components/CityForm";
 import ClubForm from "./components/ClubForm";
 import PasswordForm from "./components/PasswordForm";
 import PictureForm from "./components/PictureForm";
-import { NavLink } from "react-router-dom";
-//import styles from "./UserSettings.module.scss";
 
 function UserSettings() {
   const [message, setMessage] = useState("");
@@ -19,7 +18,7 @@ function UserSettings() {
     password: false,
   });
   return (
-    <section className="flex flex-auto align-center justify-center bg-gray-3">
+    <main className="flex flex-auto align-center justify-center bg-gray-3">
       <div className="card sm:p-8 p-4 md:my-16 my-10 mx-4 max-w-2xl flex flex-col flex-auto text-gray-4 shadow-lg">
         <h2 className="text-2xl mb-4 font-semibold">Mon profil</h2>
 
@@ -121,7 +120,7 @@ function UserSettings() {
           <NavLink to="/delete"> Supprimer mon compte</NavLink>
         </div>
       </div>
-    </section>
+    </main>
   );
 }
 

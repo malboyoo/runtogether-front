@@ -77,21 +77,18 @@ input {
 }
 
 .input-small {
-  padding: 5px 5px;
-  border: 2px solid var(--gray-2);
-  border-radius: var(--border-radius);
-  font-family: var(--font-family);
-  font-size: 14px;
+  max-height: 28px;
   max-width: 130px;
 }
 
 .input-medium {
-  padding: 5px 5px;
-  border: 2px solid var(--gray-2);
-  border-radius: var(--border-radius);
-  font-family: var(--font-family);
-  font-size: 14px;
+  max-height: 30px;
   max-width: 180px;
+}
+
+.input-large {
+  max-height: 32px;
+  max-width: 250px;
 }
 
 .label-small {

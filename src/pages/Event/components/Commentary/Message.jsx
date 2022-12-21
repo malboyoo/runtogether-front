@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
+import Linkify from "react-linkify";
 import { useParams } from "react-router-dom";
 import { deleteMessage, reportMessage } from "../../../../api/event";
 import { AuthContext } from "../../../../context/AuthContext";
@@ -82,7 +82,10 @@ function Message({ message, index, setMessages, setError, clearError }) {
         </div>
         <EventProfile user={message.author} />
       </div>
-      <p className="-translate-y-1 font-medium md:text-base text-sm">{message.content}</p>
+
+      <p className="-translate-y-1 font-medium md:text-base text-sm">
+        <Linkify>{message.content}</Linkify>
+      </p>
     </div>
   );
 }

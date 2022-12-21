@@ -55,7 +55,7 @@ function PictureForm({ user, setUser, setToggleSettings }) {
           type="file"
           name="image"
           accept=".jpg,.png"
-          className="mr-2 input-medium"
+          className="mr-2 input"
           onChange={onChangeHandler}
           encType="multipart/form-data"
         />

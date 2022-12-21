@@ -1,7 +1,7 @@
+import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 import { useMap } from "react-leaflet";
-import { useEffect } from "react";
 
 const SearchField = ({ setMapInfo }) => {
   const provider = new OpenStreetMapProvider({

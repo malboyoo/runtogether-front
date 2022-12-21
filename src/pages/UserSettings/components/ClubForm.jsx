@@ -45,7 +45,7 @@ function ClubForm({ user, setToggleSettings, setUser }) {
           Club
         </label>
         <div className="flex flex-row">
-          <input type="text" name="club" {...register("club")} className="mr-2 input-medium" />
+          <input type="text" name="club" {...register("club")} className="mr-2 input input-large" />
         </div>
 
         <button disabled={isSubmitting} className="mr-2 text-end max-w-min justify-self-end">

@@ -1,7 +1,6 @@
-import EventProfile from "./EventProfile/EventProfile";
 import { fetchUser } from "../../../api/users";
-import { useEffect } from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import EventProfile from "./EventProfile/EventProfile";
 
 function Registered({ registered }) {
   const [users, setUsers] = useState([]);

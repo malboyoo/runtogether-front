@@ -55,7 +55,7 @@ function PasswordForm({ user, setToggleSettings, setUser, setMessage }) {
             <label htmlFor="oldPassword" className="label-small">
               Mot de passe Actuel
             </label>
-            <input type="password" name="oldPassword" {...register("oldPassword")} className=" input-small" />
+            <input type="password" name="oldPassword" {...register("oldPassword")} className="input-medium input" />
             {errors.oldPassword && (
               <div className="mb-5">
                 <p className="form-error">{errors.oldPassword.message}</p>
@@ -66,7 +66,7 @@ function PasswordForm({ user, setToggleSettings, setUser, setMessage }) {
             <label htmlFor="newPassword" className="label-small">
               Nouveau mot de passe
             </label>
-            <input type="password" name="newPassword" {...register("newPassword")} className=" input-small" />
+            <input type="password" name="newPassword" {...register("newPassword")} className="input-medium input" />
             {errors.newPassword && (
               <div className="mb-5">
                 <p className="form-error">{errors.newPassword.message}</p>
@@ -81,7 +81,7 @@ function PasswordForm({ user, setToggleSettings, setUser, setMessage }) {
               type="password"
               name="confirmNewPassword"
               {...register("confirmNewPassword")}
-              className=" input-small"
+              className="input-medium input"
             />
             {errors.confirmNewPassword && (
               <div className="mb-5">

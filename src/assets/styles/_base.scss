@@ -19,7 +19,12 @@ ul {
 img {
   max-width: 100%;
 }
-
+a {
+  color: var(--primary);
+  &:hover {
+    text-decoration: underline;
+  }
+}
 ::placeholder {
   font-family: var(--font-family);
   padding: 10px;
@@ -28,11 +33,6 @@ img {
 label {
   font-size: 14px;
   font-weight: bold;
-}
-
-a {
-  color: var(--text-color);
-  text-decoration: none;
 }
 
 form {

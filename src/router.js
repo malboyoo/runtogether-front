@@ -2,7 +2,6 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { getCurrentUser } from "./api/auth";
-import Event from "./pages/Event/Event";
 import { fetchEvent, fetchAllEvent } from "./api/event";
 
 const ProtectedRoute = lazy(() => import("./components/ProtectedRoute/ProtectedRoute"));
@@ -18,6 +17,8 @@ const ForgetPassword = lazy(() => import("./pages/Signin/ForgetPassword"));
 const Error = lazy(() => import("./pages/Error/Error"));
 const EventList = lazy(() => import("./pages/EventList/EventList"));
 const CookieCharter = lazy(() => import("./pages/CookieCharter/CookieCharter"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
+const Event = lazy(() => import("./pages/Event/Event"));
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,11 @@ export const router = createBrowserRouter([
       {
         path: "cookie",
         element: <CookieCharter />,
+        errorElement: <Error />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
         errorElement: <Error />,
       },
       {

@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../../../context/AuthContext";
 
 function EventButtons({
@@ -23,13 +22,13 @@ function EventButtons({
     <div className="flex flex-col items-center relative">
       {toggleDelete && (
         <div className="absolute -top-1/4 flex flex-col items-center bg-white rounded-md px-10 pb-2 z-10">
-          <p className="form-error">Êtes vous sûrs de vouloir supprimer cette séance ?</p>
+          <p className="form-error">Êtes-vous sûrs de vouloir supprimer cette séance ?</p>
           <div className="flex flex-row justify-around w-full mt-2">
             <button className="btn bg-primary text-lg text-white w-32" onClick={() => setToggleDelete(false)}>
               Annuler
             </button>
             <button
-              className="btn bg-red-1 text-lg text-white w-32"
+              className="btn bg-red-1 text-lg text-white w-32 transition-all"
               onClick={() => {
                 setToggleDelete(false);
                 handleDeleteEvent();
@@ -45,25 +44,28 @@ function EventButtons({
         <div className="w-full flex flex-row justify-center i">
           {!expired && (
             <button
-              className="btn bg-primary text-xl text-white w-32 mx-5"
+              className="btn bg-primary text-xl text-white w-32 mx-5 transition-all"
               onClick={() => navigate(`/modify-event/${id}`)}
             >
               Modifier
             </button>
           )}
-          <button className="btn bg-red-1 text-xl text-white w-32 mx-5" onClick={() => setToggleDelete(true)}>
+          <button
+            className="btn bg-red-1 text-xl text-white w-32 mx-5 transition-all"
+            onClick={() => setToggleDelete(true)}
+          >
             Supprimer
           </button>
         </div>
       ) : status === "registered" ? (
         !expired && (
-          <button className="btn bg-red-1 text-xl text-white  m-auto" onClick={handleClickUnsign}>
+          <button className="btn bg-red-1 text-xl text-white  m-auto transition-all" onClick={handleClickUnsign}>
             Se désinscrire
           </button>
         )
       ) : (
         !expired && (
-          <button className="btn bg-primary text-xl text-white  m-auto" onClick={handleClickSign}>
+          <button className="btn bg-primary text-xl text-white  m-auto transition-all" onClick={handleClickSign}>
             S'inscrire
           </button>
         )

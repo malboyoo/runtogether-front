@@ -9,7 +9,7 @@ function EventProfile({ user, textColor, reverse = false }) {
         </span>
       </div>
       <div
-        className={`${styles.profilePicture} h-5 w-5 md:h-10 md:w-10`}
+        className={`${styles.profilePicture} h-8 w-8 sm:h-10 sm:w-10`}
         style={{ backgroundImage: `url(${user.imageUrl})` }}
       ></div>
     </div>

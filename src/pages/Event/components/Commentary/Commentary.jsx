@@ -1,11 +1,11 @@
-import Message from "./Message";
+import { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { messageSchema } from "../../../../schema/messageSchema";
-import { useContext, useState } from "react";
 import { AuthContext } from "../../../../context/AuthContext";
 import { sendMessage } from "../../../../api/event";
-import { useParams } from "react-router-dom";
+import Message from "./Message";
 
 function Commentary({ eventMessages, isRegistered }) {
   const [messages, setMessages] = useState(eventMessages);
