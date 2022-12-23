@@ -41,7 +41,6 @@ function Commentary({ eventMessages, isRegistered }) {
       setMessages([...messages, response]);
       reset();
     } catch (message) {
-      console.log(message);
       setError("generic", { type: "generic", message });
     }
   }
@@ -54,7 +53,7 @@ function Commentary({ eventMessages, isRegistered }) {
           <Message
             message={message}
             index={index}
-            key={crypto.randomUUID()}
+            key={message._id}
             setMessages={setMessages}
             setError={setError}
             clearError={clearErrors}

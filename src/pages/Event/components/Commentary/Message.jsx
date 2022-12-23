@@ -39,15 +39,16 @@ function Message({ message, index, setMessages, setError, clearError }) {
     }
   }
 
+   
   return (
     <div
       className={`flex flex-col text-gray-3 ${
         index % 2 ? "bg-swan-white" : "bg-oasis-stream"
-      } rounded-xl p-1 pl-3 mb-3 transition-all`}
+      } rounded-xl p-1 pl-3 mb-3 transition-all`} 
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <div className="flex justify-between">
+    <div className="flex justify-between">
         <div>
           <span className="md:text-sm text-xs pt-1">
             {today
@@ -84,7 +85,7 @@ function Message({ message, index, setMessages, setError, clearError }) {
       </div>
 
       <p className="-translate-y-1 font-medium md:text-base text-sm">
-        <Linkify>{message.content}</Linkify>
+        {message.content}
       </p>
     </div>
   );
