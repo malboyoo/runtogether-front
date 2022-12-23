@@ -1,4 +1,4 @@
-const API_AUTH = "http://runtogether.fr:3000/api/auth";
+const API_AUTH = "https://runtogether.fr:3000/api/auth";
 
 export async function signin(credentials) {
   const response = await fetch(API_AUTH, {

@@ -1,4 +1,4 @@
-const API_EVENT = "http://runtogether.fr:3000/api/event/";
+const API_EVENT = "https://runtogether.fr:3000/api/event/";
 
 export const fetchEvent = async ({ params }) => {
   const response = await fetch(API_EVENT + params.id);
