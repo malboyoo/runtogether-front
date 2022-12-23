@@ -1,4 +1,4 @@
-const API_CONTACT = "http://localhost:3001/api/contact";
+const API_CONTACT = "http://runtogether.fr:3000/api/contact";
 
 export const sendMessageContact = async (content) => {
   const response = await fetch(API_CONTACT, {

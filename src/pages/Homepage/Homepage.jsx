@@ -15,7 +15,7 @@ function Homepage() {
     <main className={`${styles.homepage} flex flex-auto justify-center bg-gray-4`}>
       <div className="flex flex-col items-center flex-auto h-full text-base md:text-lg ">
         <div className="imgContainer overflow-hidden grayscale shadow-2xl shadow-dirt md:rounded-b-lg">
-          <img src={homepageBg} alt="des traileurs dans la forêt" className="object-cover" />
+          <img src={homepageBg} alt="des traileurs dans la forêt" className="object-cover max-h-[700px]" />
         </div>
         <div className="flex flex-col items-center">
           <div className="py-5 px-10 mx-4 rounded-2xl bg-dark-2 md:-translate-y-10 -translate-y-5 flex flex-col items-center max-w-4xl ">
