@@ -9,8 +9,8 @@ function PictureForm({ user, setUser, setToggleSettings }) {
     new Promise((resolve) => {
       Resizer.imageFileResizer(
         file,
-        100,
-        100,
+        200,
+        200,
         "PNG",
         100,
         0,

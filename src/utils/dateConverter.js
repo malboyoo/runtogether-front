@@ -5,9 +5,9 @@ export function dateToString(date) {
 
   if (diff < 0) {
     return `Terminée`;
-  } else if (eventDate.getDay() === now.getDay()) {
+  } else if (eventDate.getDate() === now.getDate() && eventDate.getMonth() === now.getMonth()) {
     return "Aujourd'hui";
-  } else if (eventDate.getDay() === now.getDay() + 1) {
+  } else if (eventDate.getDate() === now.getDate() + 1 && eventDate.getMonth() === now.getMonth()) {
     return "Demain";
   } else {
     return `Dans ${Math.floor(diff / 86400000)} jours`;
