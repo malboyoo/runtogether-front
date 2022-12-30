@@ -26,7 +26,6 @@ function Event() {
   const [error, setError] = useState("");
   const [isRegistered, setIsRegistered] = useState(registered.includes(user._id));
   const expired = Date.parse(event.date) < Date.now();
-  console.log(event.messages);
 
   const handleClickSign = async () => {
     try {

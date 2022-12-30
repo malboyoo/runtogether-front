@@ -37,7 +37,7 @@ function UserSettings() {
         ) : (
           <div className="my-4 grid grid-cols-3 justify-between items-center ">
             <span className="font-semibold ml-1">Photo</span>
-            <div className="m-auto rounded-md w-24 h-24">
+            <div className="m-auto rounded-md w-24 h-24 overflow-hidden">
               <img src={user.imageUrl} alt={user.firstName} className="rounded-md " />
             </div>
 

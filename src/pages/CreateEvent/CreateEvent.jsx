@@ -6,19 +6,27 @@ import { eventSchema } from "../../schema/eventSchema.js";
 import { AuthContext } from "../../context/AuthContext.js";
 import { createEvent } from "../../api/event.js";
 import { useSetCityName } from "../../hooks/useSetCityName.js";
+import DatePicker from "react-datepicker";
 import Map from "./Components/Map.jsx";
 import Popup from "reactjs-popup";
+import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+import { registerLocale} from  "react-datepicker";
+import fr from 'date-fns/locale/fr';
+
+registerLocale('fr', fr)
 
 function CreateEvent() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [mapInfo, setMapInfo] = useState(undefined);
   const [cityName] = useSetCityName(mapInfo);
-  const today = new Date(Date.now()).toISOString();
+  const today = new Date(Date.now() + 3600000).toISOString();
+  const [startDate, setStartDate] = useState(new Date());
+ 
 
   const defaultValues = {
     name: "",
-    date: today.slice(0, today.lastIndexOf(":")),
+    date: startDate,
     description: "",
     public: true,
     type: "Running",
@@ -41,6 +49,7 @@ function CreateEvent() {
       if (mapInfo) {
         const body = {
           ...values,
+          date: startDate,
           location: { ...mapInfo, city: cityName },
           author: user._id,
           registered: [],
@@ -72,7 +81,7 @@ function CreateEvent() {
             }
             position="top left"
           >
-            <div className="bg-gray-2 text-white py-1 px-2 rounded-md z-50 text-sm">
+            <div className="bg-gray-2 text-white py-1 px-2 rounded-md z-49 text-sm">
               Si le lieu de RDV n'est pas disponible, mentionnez le dans la description.
             </div>
           </Popup>
@@ -88,13 +97,27 @@ function CreateEvent() {
           <label htmlFor="date" className="md:text-lg text-base">
             Date de sortie
           </label>
-          <input
+
+          {/* <input
             type="datetime-local"
             min={today.slice(0, today.lastIndexOf(":"))}
             name="date"
             {...register("date")}
             className="mt-2 input"
-          />
+          /> */}
+          
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={5}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+              locale="fr"
+              popperPlacement="bottom-start"
+            />
+          
 
           {errors.date && <p className="form-error">{errors.date.message}</p>}
         </div>

@@ -60,7 +60,7 @@ function Commentary({ eventMessages, isRegistered }) {
           />
         ))}
       </div>
-      {isRegistered && (
+      {isRegistered ? (
         <form className="flex flex-row mt-1 w-full" onSubmit={handleSubmit(submit)}>
           <input
             type="text"
@@ -71,7 +71,11 @@ function Commentary({ eventMessages, isRegistered }) {
             <i className="fa-solid fa-paper-plane"></i>
           </button>
         </form>
-      )}
+      ) : <input disabled
+      type="text"
+      className="mr-2 md:h-9 h-7 md:text-base text-xs flex-auto  border-gray-1 px-0 sm: px-10"
+      placeholder="Inscrivez-vous pour commenter"
+    />}
       <div>
         {errors.content && <p className="form-error">{errors.content.message}</p>}
         {errors.generic && <p className="form-error">{errors.generic.message}</p>}

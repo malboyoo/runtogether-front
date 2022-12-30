@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { userSchema } from "../../schema/userSchema.js";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import Popup from "reactjs-popup";
 
 function Signup() {
   const { login } = useContext(AuthContext);
@@ -50,7 +51,15 @@ function Signup() {
         onSubmit={handleSubmit(submit)}
         className="card p-8 my-10 md:my-16 mx-4 max-w-md flex flex-col flex-auto shadow-lg"
       >
-        <h2 className="mb-5 text-2xl font-semibold italic">Inscription</h2>
+        <Popup trigger={
+            <h2 className="mb-5 text-2xl font-semibold italic">Inscription <i className="fa-regular fa-circle-question text-sm"></i></h2>
+        }
+        position="bottom center" >
+            <div className="bg-gray-2 text-white py-1 px-2 rounded-md z-50 text-sm">
+              Vos données seront stockées dans une base de données sécurisée, vous pouvez supprimer votre compte à tout moment, vos données seront également supprimée de la base de donnée.
+            </div>
+        </Popup>
+        
 
         <div className="mb-5 flex flex-col">
           <label htmlFor="firstName" className="ml-1">

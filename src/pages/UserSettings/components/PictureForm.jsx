@@ -5,7 +5,7 @@ import Resizer from "react-image-file-resizer";
 function PictureForm({ user, setUser, setToggleSettings }) {
   const [file, setFile] = useState(null);
 
-  const resizeFile = (file) =>
+  const resizeFile = async(file) =>
     new Promise((resolve) => {
       Resizer.imageFileResizer(
         file,
@@ -21,30 +21,32 @@ function PictureForm({ user, setUser, setToggleSettings }) {
       );
     });
 
+    const onFileUpload = async (newFile) => {
+        const formData = new FormData();
+        formData.append("image", newFile);
+        const body = await editProfilePicture(formData);
+        setUser({ ...user, ...body });
+        setToggleSettings({
+          photo: false,
+          name: false,
+          city: false,
+          club: false,
+        });
+      };
+
   const onChangeHandler = async (event) => {
     const newFile = await resizeFile(event.target.files[0]);
     setFile(newFile);
+    onFileUpload(newFile);
   };
 
-  const onFileUpload = async () => {
-    const formData = new FormData();
-    formData.append("image", file);
-    const body = await editProfilePicture(formData);
-    setUser({ ...user, ...body });
-    setToggleSettings({
-      photo: false,
-      name: false,
-      city: false,
-      club: false,
-    });
-  };
+  
 
   return (
     <form
-      className="my-4 flex flex-row justify-between items-center"
+      className="my-4 flex flex-row justify-between items-center"  
       onSubmit={(e) => {
         e.preventDefault();
-        onFileUpload();
       }}
     >
       <label className="font-semibold" htmlFor="image">

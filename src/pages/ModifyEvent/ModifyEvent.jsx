@@ -6,7 +6,13 @@ import { AuthContext } from "../../context/AuthContext.js";
 import { modifyEvent } from "../../api/event.js";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { useSetCityName } from "../../hooks/useSetCityName.js";
+import DatePicker from "react-datepicker";
 import Map from "./Components/Map.jsx";
+import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+import { registerLocale} from  "react-datepicker";
+import fr from 'date-fns/locale/fr';
+
+registerLocale('fr', fr)
 
 function ModifyEvent() {
   const event = useLoaderData();
@@ -15,10 +21,12 @@ function ModifyEvent() {
   const { user } = useContext(AuthContext);
   const [mapInfo, setMapInfo] = useState(event.location);
   const [cityName] = useSetCityName(mapInfo);
+  const today = new Date(Date.now() + 3600000).toISOString();
+  const [startDate, setStartDate] = useState(new Date(event.date));
 
   const defaultValues = {
     name: event.name,
-    date: event.date,
+    date: startDate,
     description: event.description,
     public: true,
     type: event.type,
@@ -41,6 +49,7 @@ function ModifyEvent() {
       if (mapInfo) {
         const body = {
           ...values,
+          date: startDate,
           location: { ...mapInfo, city: cityName },
           author: user._id,
           _id: id,
@@ -79,8 +88,18 @@ function ModifyEvent() {
           <label htmlFor="date" className="md:text-lg text-base">
             Date de sortie
           </label>
-          <input type="datetime-local" name="date" {...register("date")} className="mt-2 input" />
-
+          {/* <input type="datetime-local" min={today.slice(0, today.lastIndexOf(":"))} name="date" {...register("date")} className="mt-2 input" /> */}
+          <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={5}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+              locale="fr"
+              popperPlacement="bottom-start"
+            />
           {errors.date && <p className="form-error">{errors.date.message}</p>}
         </div>
 
