@@ -1,7 +1,23 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
+        extension: "extension 1.5s ease-in-out",
+        'spin-slow': 'spin 3s linear infinite',
+      },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-4deg)" },
+          "50%": { transform: "rotate(4deg)" },
+        },
+        extension: {
+          "0%": { width: "0px" },
+          "100%": { width: "100%" },
+        },
+      },
+    },
     colors: {
       white: "#FFFFFF",
       primary: "#3742fa",
@@ -23,19 +39,6 @@ module.exports = {
       "logo-2": "#18dcff",
       dirt: "#676767",
     },
-    animation: {
-      wiggle: "wiggle 1s ease-in-out infinite",
-      extension: "extension 1.5s ease-in-out",
-    },
-    keyframes: {
-      wiggle: {
-        "0%, 100%": { transform: "rotate(-4deg)" },
-        "50%": { transform: "rotate(4deg)" },
-      },
-      extension: {
-        "0%": { width: "0px" },
-        "100%": { width: "100%" },
-      },
-    },
+    
   },
 };

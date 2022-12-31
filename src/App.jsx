@@ -13,7 +13,7 @@ function App() {
           <Suspense
             fallback={
               <div className="mt-96 w-full flex justify-center">
-                <i className="fa-solid fa-spinner animate-spin text-5xl"></i>
+                <i className="fa-solid fa-spinner animate-spin-slow text-5xl"></i>
               </div>
             }
           >
