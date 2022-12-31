@@ -64,6 +64,11 @@ function ModifyEvent() {
     }
   }
 
+  const filterTime = (date) => {
+    const isPastTime = new Date().getTime() > date.getTime();
+    return !isPastTime;
+    };
+
   return (
     <main className="flex flex-auto align-center justify-center bg-gray-3 shadow-lg">
       <form
@@ -84,21 +89,23 @@ function ModifyEvent() {
           </p>
         </div>
 
-        <div className="mb-5 flex flex-col">
+        <div className="mb-5 flex flex-col relative">
           <label htmlFor="date" className="md:text-lg text-base">
             Date de sortie
           </label>
-          {/* <input type="datetime-local" min={today.slice(0, today.lastIndexOf(":"))} name="date" {...register("date")} className="mt-2 input" /> */}
           <DatePicker
+              className="z-50 cursor-pointer"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
               showTimeSelect
+              excludeOutOfBoundsTimes
+              minDate={new Date()}
               timeFormat="HH:mm"
               timeIntervals={5}
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
               locale="fr"
-              popperPlacement="bottom-start"
+              filterTime={filterTime}
             />
           {errors.date && <p className="form-error">{errors.date.message}</p>}
         </div>

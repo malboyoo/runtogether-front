@@ -166,6 +166,10 @@ input {
   }
 }
 
+.leaflet-container{
+  z-index: 1 !important;
+}
+
 .leaflet-control-container {
   margin-right: 10px;
   .leaflet-top {
