@@ -55,7 +55,7 @@ Concernant le code, le front-end reste publique, Notez cependant que malgré l'u
 ![](./src/assets/images/screenshot_1.png)
 À compléter...
 
-## Autheur
+## Auteur
 
 - LinkedIn [Thibaut Lefevre](https://www.linkedin.com/in/thibaut-lefevre-b60101117/)
 - Frontend Mentor [@malboyoo](https://www.frontendmentor.io/profile/malboyoo)
