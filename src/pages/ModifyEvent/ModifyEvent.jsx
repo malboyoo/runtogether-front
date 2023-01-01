@@ -140,7 +140,7 @@ function ModifyEvent() {
             type="text"
             name="description"
             {...register("description")}
-            className="mt-2 h-28 border-2 border-gray-2 rounded-md p-2 md:text-sm text-xstext-base"
+            className="mt-2 h-28 border-2 border-gray-2 rounded-md p-2 md:text-sm text-xs text-base"
           />
           {errors.description && <p className="form-error">{errors.description.message}</p>}
         </div>

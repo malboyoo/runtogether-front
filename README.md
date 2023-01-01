@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+![](./src/assets/images/runtogether_logo.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Runtogether.fr - Planifiez vos activités sportives
 
-## Available Scripts
+[runtogether.fr](https://runtogether.fr)
+Projet créé avec [Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+## Built with
 
-### `npm start`
+Ce projet a été réalisé en utilisant les technologies suivantes :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Front-end
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [React18](https://reactjs.org/)
+- [React Router](https://reactrouter.com/en/main) / [React Hook Form](https://react-hook-form.com/)
+- [React Leaflet](https://react-leaflet.js.org/) (provider: OpenStreeMap)
+- [Sass](https://sass-lang.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-### `npm test`
+### Back-end
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- autres librairie: bcrypt, cookie-parser, express-rate-limit, jsonwebtoken, multer, nodemailer, etc...
 
-### `npm run build`
+### Web-server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Le front et le backend tourne sur un VPS (ubuntu 22.04), le tout entièrement gérer via protocole SSH
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Concernant le projet
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ce projet a été créé uniquement dans le but de renforcer mes compétences de développeur full-stack, runtogether.fr n'a aucun but lucratif et ne sera probablement plus mis à jour.
 
-### `npm run eject`
+Créer runtogether.fr a été un réel challenge, le fait de devoir gérer l'entièreté du projet m'a permis de mieux comprendre le fonctionnement d'un projet dans sa globalité. J'ai également appris à gérer un serveur web, je n'avais aucune connaissance dans le domaine (VPS, SSH, certificat SSL, etc...).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Concernant le code, le front-end reste publique, Notez cependant que malgré l'utilisation de variables d'environnement et pour des raisons de sécurité, je ne partagerais le back-end que sur demande (recruteurs uniquement).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Fonctionnalités
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Créer un compte
+- Se connecter / déconnecter (login géré par JsonWebToken)
+- Changer ses paramètres utilisateur (avatar, infos personnelles)
+- Réinitialiser sont mot de passe
+- Envoyer un message au support (nodemailer)
+- Créer une activité avec point de RDV sur la carte (Leaflet)
+- Modifier / supprimer une activité
+- Commenter une activité, signaler / supprimer un commentaire.
+- Voir / filtrer les activités existantes.
+- Rate Limiter pour éviter certains abus (création de comptes, contact du support, etc...)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Screenshot
 
-## Learn More
+![](./src/assets/images/screenshot_1.png)
+À compléter...
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Autheur
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- LinkedIn [Thibaut Lefevre](https://www.linkedin.com/in/thibaut-lefevre-b60101117/)
+- Frontend Mentor [@malboyoo](https://www.frontendmentor.io/profile/malboyoo)

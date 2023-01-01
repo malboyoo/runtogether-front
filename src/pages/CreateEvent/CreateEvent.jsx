@@ -158,7 +158,7 @@ function CreateEvent() {
             type="text"
             name="description"
             {...register("description")}
-            className="border-2 border-gray-2 rounded-md p-2 mt-2 input h-28 md:text-sm text-xs"
+            className="border-2 border-gray-2 rounded-md p-2 mt-2 input h-28 md:text-sm text-xs white"
           />
           {errors.description && <p className="form-error">{errors.description.message}</p>}
         </div>
