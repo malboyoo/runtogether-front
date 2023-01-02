@@ -84,7 +84,7 @@ function Message({ message, index, setMessages, setError, clearError }) {
         <EventProfile user={message.author} />
       </div>
 
-      <p className="-translate-y-1 font-medium md:text-base text-sm">
+      <p className="-translate-y-1 font-medium md:text-base text-sm whitespace-pre-line">
         {message.content}
       </p>
     </div>

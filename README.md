@@ -42,7 +42,8 @@ Concernant le code, le front-end reste publique, Notez cependant que malgré l'u
 - Créer un compte
 - Se connecter / déconnecter (login géré par JsonWebToken)
 - Changer ses paramètres utilisateur (avatar, infos personnelles)
-- Réinitialiser sont mot de passe
+- Réinitialiser son mot de passe
+- Supprimer son compte
 - Envoyer un message au support (nodemailer)
 - Créer une activité avec point de RDV sur la carte (Leaflet)
 - Modifier / supprimer une activité
